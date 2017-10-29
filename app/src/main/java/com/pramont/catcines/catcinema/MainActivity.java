@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final static String URI_LOGO_TONALA = "http://cinetonala.mx/" +
             "wp-content/uploads/2016/05/logotonala.png";
     private final static String URI_LOGO_CINETECA = "http://www.cinetecanacional.net/favicon";
-    private boolean mCallPermission = false;
     private Intent mIntent;
     private ImageView mIv_ico_coyo;
     private ImageView mIv_ico_tonala;
@@ -156,10 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
         try
         {
-            if (mCallPermission)
-            {
-                startActivity(mIntent);
-            }
+            startActivity(mIntent);
         }
         catch (Exception ex)
         {
@@ -194,15 +190,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 ActivityCompat.requestPermissions(MainActivity.this,
                         new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
-                mCallPermission = true;
             }
-        }
-        else
-        {
-            /**
-             * I case the android version is lower than M, is allowed the permission by default.
-             */
-            mCallPermission = true;
         }
     }
 }
