@@ -151,7 +151,7 @@
 
                     <ImageView
                         android:id="@+id/iv_call_cineteca"
-                        android:layout_width="35dp"
+                        android:layout_width="@dimen/square"
                         android:layout_height="@dimen/square"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/top_text_views"

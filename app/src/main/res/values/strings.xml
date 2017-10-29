@@ -23,4 +23,10 @@
     <string name="map_cineteca">https://goo.gl/maps/4XvBKbN4rHF2</string>
     <string name="map_coyo">https://goo.gl/maps/CLCyd6sgBmy</string>
     <string name="map_tonala">https://goo.gl/maps/YxFwB1tLMKv</string>
+
+    <string name="title_activity_coyoacan">Cinema Coyoacan</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
 </resources>

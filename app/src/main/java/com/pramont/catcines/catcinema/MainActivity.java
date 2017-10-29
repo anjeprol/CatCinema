@@ -1,9 +1,13 @@
 package com.pramont.catcines.catcinema;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,9 +22,13 @@ import com.bumptech.glide.request.target.Target;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_PHONE_CALL = 1;
-    private final static String URI_LOGO_COYO = "http://cinemacoyoacan.com/wp-content/uploads/2017/05/cropped-favicon3-270x270.png";
-    private final static String URI_LOGO_TONALA = "http://cinetonala.mx/wp-content/uploads/2016/05/logotonala.png";
+    private final static String URI_LOGO_COYO = "http://cinemacoyoacan.com/" +
+            "wp-content/uploads/2017/05/cropped-favicon3-270x270.png";
+    private final static String URI_LOGO_TONALA = "http://cinetonala.mx/" +
+            "wp-content/uploads/2016/05/logotonala.png";
     private final static String URI_LOGO_CINETECA = "http://www.cinetecanacional.net/favicon";
+    private boolean mCallPermission = false;
+    private Intent mIntent;
     private ImageView mIv_ico_coyo;
     private ImageView mIv_ico_tonala;
     private ImageView mIv_ico_cineteca;
@@ -35,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        requestPermissions();
         mIv_ico_coyo = findViewById(R.id.iv_coyoacan);
         mIv_ico_cineteca = findViewById(R.id.iv_cineteca);
         mIv_ico_tonala = findViewById(R.id.iv_tonala);
@@ -44,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_call_cineteca = findViewById(R.id.iv_call_cineteca);
         mIv_call_coyo = findViewById(R.id.iv_call_coyo);
         mIv_call_tonala = findViewById(R.id.iv_call_tonala);
-
 
         getLogo(mIv_ico_coyo, URI_LOGO_COYO);
         getLogo(mIv_ico_cineteca, URI_LOGO_CINETECA);
@@ -71,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.iv_coyoacan:
-
+                setActivity(this, CoyoActivity.class);
                 break;
 
             case R.id.iv_tonala:
@@ -117,14 +126,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .error(R.mipmap.ic_not_found)
                 .listener(new RequestListener<String, GlideDrawable>() {
                     @Override
-                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                        // log exception
+                    public boolean onException(Exception e, String model,
+                                               Target<GlideDrawable> target,
+                                               boolean isFirstResource) {
                         Log.e("Glide", "Error loading image", e);
-                        return false; // important to return false so the error placeholder can be placed
+                        // important to return false so the error placeholder can be placed
+                        return false;
                     }
 
                     @Override
-                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                    public boolean onResourceReady(GlideDrawable resource, String model,
+                                                   Target<GlideDrawable> target,
+                                                   boolean isFromMemoryCache,
+                                                   boolean isFirstResource) {
                         return false;
                     }
                 })
@@ -136,26 +150,65 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      *
      * @param phone String phone number.
      */
+    @SuppressLint("MissingPermission")
     private void makeCall(String phone) {
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+        final String TAG = "Permissions";
+        mIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
+        try
         {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
+            if (mCallPermission)
+            {
+                startActivity(mIntent);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            startActivity(intent);
+            requestPermissions();
+            Log.d(TAG, "No permissions granted \n" + ex.getMessage());
         }
     }
 
     /**
      * Gets the location and send the directions using google maps.
+     *
      * @param uri String uri from maps.
      */
     private void getMaps(String uri) {
-        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+        mIntent = new Intent(android.content.Intent.ACTION_VIEW,
                 Uri.parse(uri));
-        startActivity(intent);
+        startActivity(mIntent);
 
+    }
+
+    private void setActivity(Context context, Class<CoyoActivity> activity) {
+        mIntent = new Intent(context, activity);
+        startActivity(mIntent);
+
+    }
+
+    /**
+     * To request all the permission once the application starts.
+     */
+    private void requestPermissions() {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        {
+            /**
+             * Asking for call permission.
+             */
+            if (ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+            {
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[]{Manifest.permission.CALL_PHONE}, REQUEST_PHONE_CALL);
+                mCallPermission = true;
+            }
+        }
+        else
+        {
+            /**
+             * I case the android version is lower than M, is allowed the permission by default.
+             */
+            mCallPermission = true;
+        }
     }
 }

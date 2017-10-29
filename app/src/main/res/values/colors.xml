@@ -6,4 +6,6 @@
     <color name="viewBg">#e8f1f9</color>
     <color name="album_title">#4c4c4c</color>
     <color name="bg_splash">#fadab3</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>
