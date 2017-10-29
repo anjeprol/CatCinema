@@ -4,24 +4,23 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.view.KeyEvent;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class CoyoActivity extends AppCompatActivity {
-
-    private static final String URL = "http://cinemacoyoacan.com/";
+public class TonalaActivity extends AppCompatActivity {
+    private static final String URL = "http://cinetonala.mx/";
     private WebView mWebView = null;
     private WebSettings mWebSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coyo);
+        setContentView(R.layout.activity_tonala);
 
+        setContentView(R.layout.activity_coyo);
         /** WebView embedded no need to add it into any layout**/
         mWebView = new WebView(this);
         setContentView(mWebView);

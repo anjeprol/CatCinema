@@ -25,8 +25,10 @@
     <string name="map_tonala">https://goo.gl/maps/YxFwB1tLMKv</string>
 
     <string name="title_activity_coyoacan">Cinema Coyoacan</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="uri_coyo">http://cinemacoyoacan.com/</string>
+    <string name="uri_cinema">http://cinetonala.mx/</string>
+    <string name="uri_tonala">http://www.cinetecanacional.net/controlador.php?opcion=carteleraDia</string>
+    <string name="test">http</string>
+
 </resources>

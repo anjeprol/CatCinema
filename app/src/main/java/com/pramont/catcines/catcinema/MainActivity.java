@@ -76,15 +76,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId())
         {
             case R.id.iv_cineteca:
-
+                startActivity(new Intent(this, CinemaActivity.class));
                 break;
 
             case R.id.iv_coyoacan:
-                setActivity(this, CoyoActivity.class);
+                startActivity(new Intent(this, CoyoActivity.class));
                 break;
 
             case R.id.iv_tonala:
-
+                startActivity(new Intent(this, TonalaActivity.class));
                 break;
 
             case R.id.iv_map_cineteca:
@@ -176,12 +176,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void getMaps(String uri) {
         mIntent = new Intent(android.content.Intent.ACTION_VIEW,
                 Uri.parse(uri));
-        startActivity(mIntent);
-
-    }
-
-    private void setActivity(Context context, Class<CoyoActivity> activity) {
-        mIntent = new Intent(context, activity);
         startActivity(mIntent);
 
     }
