@@ -77,7 +77,7 @@
                         android:src="@mipmap/ic_map_layout"/>
 
                     <ImageView
-                        android:id="@+id/call_coyo"
+                        android:id="@+id/iv_call_coyo"
                         android:layout_width="@dimen/square"
                         android:layout_height="@dimen/square"
                         android:layout_gravity="center"
@@ -150,8 +150,8 @@
                         android:src="@mipmap/ic_map_layout"/>
 
                     <ImageView
-                        android:id="@+id/call_cineteca"
-                        android:layout_width="@dimen/square"
+                        android:id="@+id/iv_call_cineteca"
+                        android:layout_width="35dp"
                         android:layout_height="@dimen/square"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/top_text_views"
@@ -225,7 +225,7 @@
                         android:src="@mipmap/ic_map_layout"/>
 
                     <ImageView
-                        android:id="@+id/call_tonal"
+                        android:id="@+id/iv_call_tonala"
                         android:layout_width="@dimen/square"
                         android:layout_height="@dimen/square"
                         android:layout_gravity="center"
