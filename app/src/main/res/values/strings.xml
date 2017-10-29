@@ -3,4 +3,15 @@
     <string name="pramont_apps">Pramont Apps</string>
     <string name="hint_title">Title</string>
     <string name="hint_address">Adddress</string>
+
+    <!-- Cinema titles-->
+    <string name="title_coyo">Cinema Coyoacan</string>
+    <string name="title_cineteca">Cineteca Nacional</string>
+    <string name="title_tonala">Cine Tonala</string>
+
+    <!-- Cinema address-->
+    <string name="addr_coyo">Centenario y Viena, Del Carmen, 04100 Ciudad de México, CDMX</string>
+    <string name="addr_cineteca">Avenida México Coyoacán 389, Xoco, 03330 Coyoacan, CDMXX</string>
+    <string name="addr_tonala">Tonalá 261, Roma Sur, 06760 Ciudad de México, CDMX</string>
+
 </resources>
