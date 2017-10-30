@@ -4,11 +4,16 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
+import android.text.TextPaint;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +22,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_PHONE_CALL = 1;
@@ -41,7 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        requestPermissions();
+        //requestPermissions();
+        overlayDemo(getString(R.string.cartelera), getString(R.string.msg_cartelera_overlay),
+                new ViewTarget(R.id.iv_cineteca, this));
         mIv_ico_coyo = findViewById(R.id.iv_coyoacan);
         mIv_ico_cineteca = findViewById(R.id.iv_cineteca);
         mIv_ico_tonala = findViewById(R.id.iv_tonala);
@@ -66,6 +75,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_call_cineteca.setOnClickListener(this);
         mIv_call_coyo.setOnClickListener(this);
 
+    }
+
+    /**
+     * To show the overlay demo just once, in order to show how it's works the app interaction.
+     *
+     * @param titleLabel String title to show at overlay.
+     * @param msg String message to set at overlay.
+     * @param target TargetView to set at overlay.
+     */
+    private void overlayDemo(String titleLabel, String msg, ViewTarget target) {
+        TextPaint paint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        paint.setTextSize(getResources().getDimension(R.dimen.text_size_message_overlay));
+        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        paint.setColor(Color.rgb(241,140,18));
+
+        TextPaint title = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        title.setTextSize(getResources().getDimension(R.dimen.text_size_title_overlay));
+        title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        title.setColor(Color.rgb(13,35,94));
+
+        ShowcaseView showcaseView = new ShowcaseView.Builder(this)
+                .withNewStyleShowcase()
+                .setTarget(target)
+                .setContentTextPaint(paint)
+                .setContentTitle(titleLabel)
+                .setContentText(msg)
+                .setContentTitlePaint(title)
+                .hideOnTouchOutside()
+                .singleShot(45)
+                .build();
+
+        showcaseView.setDetailTextAlignment(Layout.Alignment.ALIGN_CENTER);
+        showcaseView.setTitleTextAlignment(Layout.Alignment.ALIGN_CENTER);
+        showcaseView.forceTextPosition(ShowcaseView.ABOVE_SHOWCASE);
     }
 
     @Override

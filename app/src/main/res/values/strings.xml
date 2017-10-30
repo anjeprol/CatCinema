@@ -30,5 +30,7 @@
     <string name="uri_cinema">http://cinetonala.mx/</string>
     <string name="uri_tonala">http://www.cinetecanacional.net/controlador.php?opcion=carteleraDia</string>
     <string name="test">http</string>
+    <string name="cartelera">Ver cartelera</string>
+    <string name="msg_cartelera_overlay">Toca la imagen para ver la cartelera.</string>
 
 </resources>
