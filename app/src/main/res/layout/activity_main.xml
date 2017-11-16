@@ -36,6 +36,7 @@
                     android:src="@mipmap/ic_splash_foreground"/>
 
                 <LinearLayout
+                    android:id="@+id/ll_coyo"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/margin_sides"
@@ -109,7 +110,8 @@
                     android:src="@mipmap/ic_splash_foreground"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/ll_cineteca"
+                    android:layout_width="143dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/margin_sides"
                     android:layout_marginRight="@dimen/margin_sides"
@@ -184,6 +186,7 @@
                     android:src="@mipmap/ic_splash_foreground"/>
 
                 <LinearLayout
+                    android:id="@+id/ll_tonala"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/margin_sides"

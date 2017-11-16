@@ -17,6 +17,7 @@ import android.text.TextPaint;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView mIv_call_coyo;
     private ImageView mIv_call_cineteca;
     private ImageView mIv_call_tonala;
+    private LinearLayout mLinearLay_coyo;
+    private LinearLayout mLinearLay_cinetaca;
+    private LinearLayout mLinearLay_tonala;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_call_cineteca = findViewById(R.id.iv_call_cineteca);
         mIv_call_coyo = findViewById(R.id.iv_call_coyo);
         mIv_call_tonala = findViewById(R.id.iv_call_tonala);
+        mLinearLay_tonala = findViewById(R.id.ll_tonala);
+        mLinearLay_coyo = findViewById(R.id.ll_coyo);
+        mLinearLay_cinetaca = findViewById(R.id.ll_cineteca);
 
         getLogo(mIv_ico_coyo, URI_LOGO_COYO);
         getLogo(mIv_ico_cineteca, URI_LOGO_CINETECA);
@@ -74,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_call_tonala.setOnClickListener(this);
         mIv_call_cineteca.setOnClickListener(this);
         mIv_call_coyo.setOnClickListener(this);
+        mLinearLay_cinetaca.setOnClickListener(this);
+        mLinearLay_coyo.setOnClickListener(this);
+        mLinearLay_tonala.setOnClickListener(this);
 
     }
 
@@ -124,6 +134,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.iv_tonala:
+                startActivity(new Intent(this, TonalaActivity.class));
+                break;
+
+            case R.id.ll_cineteca:
+                startActivity(new Intent(this, CinemaActivity.class));
+                break;
+
+            case R.id.ll_coyo:
+                startActivity(new Intent(this, CoyoActivity.class));
+                break;
+
+            case R.id.ll_tonala:
                 startActivity(new Intent(this, TonalaActivity.class));
                 break;
 
