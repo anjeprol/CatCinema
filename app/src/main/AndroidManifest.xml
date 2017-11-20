@@ -31,17 +31,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CoyoActivity"
+            android:name=".ShowTimeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
-        <activity android:name=".CinemaActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
-        <activity android:name=".TonalaActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
     </application>
 

@@ -8,29 +8,34 @@
     <string name="title_coyo">Cinema Coyoacan</string>
     <string name="title_cineteca">Cineteca Nacional</string>
     <string name="title_tonala">Cine Tonala</string>
+    <string name="title_coyote_insur">Coyote insurgentes</string>
+    <string name="title_coyote_pol">Coyote polanco</string>
 
     <!-- Cinema address-->
-    <string name="addr_coyo">Centenario y Viena, Del Carmen, 04100 Ciudad de México, CDMX</string>
+    <string name="addr_coyo">Centenario y Viena, Del Carmen, 04100 CDMX</string>
     <string name="addr_cineteca">Avenida México Coyoacán 389, Xoco, 03330 Coyoacan, CDMXX</string>
-    <string name="addr_tonala">Tonalá 261, Roma Sur, 06760 Ciudad de México, CDMX</string>
+    <string name="addr_tonala">Tonalá 261, Roma Sur, 06760, CDMX</string>
+    <string name="addr_coyote_insur">Insurgentes Sur 1729, Alvaro Obregón, 01020, CDMX</string>
+    <string name="addr_coyote_pol">Lago Zurich 200, Miguel Hidalgo, 11529, CDMX</string>
 
     <!-- Phones -->
     <string name="phone_coyo">5561145086</string>
     <string name="phone_cineteca">5541551200</string>
     <string name="phone_tonala">5552644101</string>
+    <string name="phone_coyo_insr">5570456173</string>
+    <string name="phone_coyo_pol">5585800078</string>
 
     <!-- Maps-->
     <string name="map_cineteca">https://goo.gl/maps/4XvBKbN4rHF2</string>
     <string name="map_coyo">https://goo.gl/maps/CLCyd6sgBmy</string>
     <string name="map_tonala">https://goo.gl/maps/YxFwB1tLMKv</string>
+    <string name="map_coyo_insur">https://goo.gl/maps/5aRAybSvgmC2</string>
+    <string name="map_coyo_pol">https://goo.gl/maps/D1kMCUGYNXk</string>
 
-    <string name="title_activity_coyoacan">Cinema Coyoacan</string>
-
-    <string name="uri_coyo">http://cinemacoyoacan.com/</string>
-    <string name="uri_cinema">http://cinetonala.mx/</string>
-    <string name="uri_tonala">http://www.cinetecanacional.net/controlador.php?opcion=carteleraDia</string>
-    <string name="test">http</string>
+    <!-- overlay -->
     <string name="cartelera">Ver cartelera</string>
     <string name="msg_cartelera_overlay">Toca la imagen para ver la cartelera.</string>
+
+
 
 </resources>

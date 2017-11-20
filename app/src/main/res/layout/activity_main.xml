@@ -167,7 +167,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/margin_top"
             android:layout_marginLeft="@dimen/margin_sides"
             android:layout_marginRight="@dimen/margin_sides"
             android:layout_marginTop="@dimen/margin_top"
@@ -238,7 +237,153 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_coyote_insur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_sides"
+            android:layout_marginRight="@dimen/margin_sides"
+            android:layout_marginTop="@dimen/margin_top"
+            app:cardCornerRadius="@dimen/cornerRadius">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_coyote_insur"
+                    android:layout_width="@dimen/square_logo"
+                    android:layout_height="@dimen/square_logo"
+                    android:src="@mipmap/ic_splash_foreground"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_coyote_insur"
+                    android:layout_width="143dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin_sides"
+                    android:layout_marginRight="@dimen/margin_sides"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_title_coyote"
+                        android:layout_width="@dimen/widthText"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/top_text_views"
+                        android:text="@string/title_coyote_insur"
+                        android:textSize="@dimen/text_size_title"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tv_addr_coyote"
+                        android:layout_width="@dimen/widthText"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/top_text_views"
+                        android:hint="@string/addr_coyote_insur"
+                        android:textSize="@dimen/hint_size_address"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_map_coyote_insur"
+                        android:layout_width="@dimen/square"
+                        android:layout_height="@dimen/square"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/top_text_views"
+                        android:drawingCacheQuality="auto"
+                        android:src="@mipmap/ic_map_layout"/>
+
+                    <ImageView
+                        android:id="@+id/iv_call_coyote_insur"
+                        android:layout_width="@dimen/square"
+                        android:layout_height="@dimen/square"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/top_text_views"
+                        android:src="@mipmap/ic_call_layout"/>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_coyote_pol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_top"
+            android:layout_marginLeft="@dimen/margin_sides"
+            android:layout_marginRight="@dimen/margin_sides"
+            android:layout_marginTop="@dimen/margin_top"
+            app:cardCornerRadius="@dimen/cornerRadius">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_coyote_pol"
+                    android:layout_width="@dimen/square_logo"
+                    android:layout_height="@dimen/square_logo"
+                    android:src="@mipmap/ic_splash_foreground"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_coyote_pol"
+                    android:layout_width="143dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin_sides"
+                    android:layout_marginRight="@dimen/margin_sides"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_coyote_pol"
+                        android:layout_width="@dimen/widthText"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/top_text_views"
+                        android:text="@string/title_coyote_pol"
+                        android:textSize="@dimen/text_size_title"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tv_addr_coyote_pol"
+                        android:layout_width="@dimen/widthText"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/top_text_views"
+                        android:hint="@string/addr_coyote_pol"
+                        android:textSize="@dimen/hint_size_address"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_map_coyote_pol"
+                        android:layout_width="@dimen/square"
+                        android:layout_height="@dimen/square"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/top_text_views"
+                        android:drawingCacheQuality="auto"
+                        android:src="@mipmap/ic_map_layout"/>
+
+                    <ImageView
+                        android:id="@+id/iv_call_coyote_pol"
+                        android:layout_width="@dimen/square"
+                        android:layout_height="@dimen/square"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/top_text_views"
+                        android:src="@mipmap/ic_call_layout"/>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
-
 </ScrollView>

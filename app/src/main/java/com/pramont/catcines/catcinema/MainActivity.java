@@ -26,6 +26,8 @@ import com.bumptech.glide.request.target.Target;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_PHONE_CALL = 1;
     private final static String URI_LOGO_COYO = "http://cinemacoyoacan.com/" +
@@ -33,24 +35,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final static String URI_LOGO_TONALA = "http://cinetonala.mx/" +
             "wp-content/uploads/2016/05/logotonala.png";
     private final static String URI_LOGO_CINETECA = "http://www.cinetecanacional.net/favicon";
+    private final static String URI_LOGO_AUTO = "http://www.autocinemacoyote.com/image/2015/assets/autocinema-coyote-logo-2015.png";
+    private final static String COYO = "coyo";
+    private final static String TONA = "tonala";
+    private final static String CINE = "cineteca";
+    private final static String AUTO_COY_INSUR = "coyoinsur";
+    private final static String AUTO_COY_POL = "coyopol";
     private Intent mIntent;
+    private HashMap<String, String> mCatCinemas;
     private ImageView mIv_ico_coyo;
     private ImageView mIv_ico_tonala;
     private ImageView mIv_ico_cineteca;
+    private ImageView mIv_ico_coyo_insur;
+    private ImageView mIv_ico_coyo_pol;
     private ImageView mIv_map_coyo;
     private ImageView mIv_map_tonala;
     private ImageView mIv_map_cineteca;
+    private ImageView mIv_map_coyo_insur;
+    private ImageView mIv_map_coyo_pol;
     private ImageView mIv_call_coyo;
     private ImageView mIv_call_cineteca;
     private ImageView mIv_call_tonala;
+    private ImageView mIv_call_coyo_insur;
+    private ImageView mIv_call_coyo_pol;
     private LinearLayout mLinearLay_coyo;
     private LinearLayout mLinearLay_cinetaca;
     private LinearLayout mLinearLay_tonala;
+    private LinearLayout mLinearLay_coyo_insur;
+    private LinearLayout mLinearLay_coyo_pol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mCatCinemas = new HashMap<>();
+        mCatCinemas.put(COYO, "http://cinemacoyoacan.com/");
+        mCatCinemas.put(TONA, "http://cinetonala.mx/");
+        mCatCinemas.put(CINE, "http://www.cinetecanacional.net/movil.php");
+        mCatCinemas.put(AUTO_COY_INSUR, "https://cartelera.autocinemacoyote.com/?cine=4");
+        mCatCinemas.put(AUTO_COY_POL, "https://cartelera.autocinemacoyote.com/?cine=5");
 
         //requestPermissions();
         overlayDemo(getString(R.string.cartelera), getString(R.string.msg_cartelera_overlay),
@@ -58,32 +81,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mIv_ico_coyo = findViewById(R.id.iv_coyoacan);
         mIv_ico_cineteca = findViewById(R.id.iv_cineteca);
         mIv_ico_tonala = findViewById(R.id.iv_tonala);
+        mIv_ico_coyo_insur = findViewById(R.id.iv_coyote_insur);
+        mIv_ico_coyo_pol = findViewById(R.id.iv_coyote_pol);
+
         mIv_map_coyo = findViewById(R.id.iv_map_coyo);
         mIv_map_cineteca = findViewById(R.id.iv_map_cineteca);
         mIv_map_tonala = findViewById(R.id.iv_map_tonala);
+        mIv_map_coyo_insur = findViewById(R.id.iv_map_coyote_insur);
+        mIv_map_coyo_pol = findViewById(R.id.iv_map_coyote_pol);
+
         mIv_call_cineteca = findViewById(R.id.iv_call_cineteca);
         mIv_call_coyo = findViewById(R.id.iv_call_coyo);
         mIv_call_tonala = findViewById(R.id.iv_call_tonala);
+        mIv_call_coyo_insur = findViewById(R.id.iv_call_coyote_insur);
+        mIv_call_coyo_pol = findViewById(R.id.iv_call_coyote_pol);
+
         mLinearLay_tonala = findViewById(R.id.ll_tonala);
         mLinearLay_coyo = findViewById(R.id.ll_coyo);
         mLinearLay_cinetaca = findViewById(R.id.ll_cineteca);
+        mLinearLay_coyo_insur = findViewById(R.id.ll_coyote_insur);
+        mLinearLay_coyo_pol = findViewById(R.id.ll_coyote_pol);
 
         getLogo(mIv_ico_coyo, URI_LOGO_COYO);
         getLogo(mIv_ico_cineteca, URI_LOGO_CINETECA);
         getLogo(mIv_ico_tonala, URI_LOGO_TONALA);
+        getLogo(mIv_ico_coyo_insur, URI_LOGO_AUTO);
+        getLogo(mIv_ico_coyo_pol, URI_LOGO_AUTO);
 
         mIv_ico_coyo.setOnClickListener(this);
         mIv_ico_cineteca.setOnClickListener(this);
         mIv_ico_tonala.setOnClickListener(this);
+        mIv_ico_coyo_insur.setOnClickListener(this);
+        mIv_ico_coyo_pol.setOnClickListener(this);
+
         mIv_map_coyo.setOnClickListener(this);
         mIv_map_cineteca.setOnClickListener(this);
         mIv_map_tonala.setOnClickListener(this);
+        mIv_map_coyo_insur.setOnClickListener(this);
+        mIv_map_coyo_pol.setOnClickListener(this);
+
         mIv_call_tonala.setOnClickListener(this);
         mIv_call_cineteca.setOnClickListener(this);
         mIv_call_coyo.setOnClickListener(this);
+        mIv_call_coyo_insur.setOnClickListener(this);
+        mIv_call_coyo_pol.setOnClickListener(this);
+
         mLinearLay_cinetaca.setOnClickListener(this);
         mLinearLay_coyo.setOnClickListener(this);
         mLinearLay_tonala.setOnClickListener(this);
+        mLinearLay_coyo_insur.setOnClickListener(this);
+        mLinearLay_coyo_pol.setOnClickListener(this);
 
     }
 
@@ -91,19 +138,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * To show the overlay demo just once, in order to show how it's works the app interaction.
      *
      * @param titleLabel String title to show at overlay.
-     * @param msg String message to set at overlay.
-     * @param target TargetView to set at overlay.
+     * @param msg        String message to set at overlay.
+     * @param target     TargetView to set at overlay.
      */
     private void overlayDemo(String titleLabel, String msg, ViewTarget target) {
         TextPaint paint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         paint.setTextSize(getResources().getDimension(R.dimen.text_size_message_overlay));
         paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        paint.setColor(Color.rgb(241,140,18));
+        paint.setColor(Color.rgb(241, 140, 18));
 
         TextPaint title = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         title.setTextSize(getResources().getDimension(R.dimen.text_size_title_overlay));
         title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        title.setColor(Color.rgb(13,35,94));
+        title.setColor(Color.rgb(13, 35, 94));
 
         ShowcaseView showcaseView = new ShowcaseView.Builder(this)
                 .withNewStyleShowcase()
@@ -126,27 +173,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId())
         {
             case R.id.iv_cineteca:
-                startActivity(new Intent(this, CinemaActivity.class));
+                showActivity(mCatCinemas.get(CINE));
                 break;
 
             case R.id.iv_coyoacan:
-                startActivity(new Intent(this, CoyoActivity.class));
+                showActivity(mCatCinemas.get(COYO));
                 break;
 
             case R.id.iv_tonala:
-                startActivity(new Intent(this, TonalaActivity.class));
+                showActivity(mCatCinemas.get(TONA));
+                break;
+
+            case R.id.iv_coyote_insur:
+                showActivity(mCatCinemas.get(AUTO_COY_INSUR));
+                break;
+
+            case R.id.iv_coyote_pol:
+                showActivity(mCatCinemas.get(AUTO_COY_POL));
                 break;
 
             case R.id.ll_cineteca:
-                startActivity(new Intent(this, CinemaActivity.class));
+                showActivity(mCatCinemas.get(CINE));
                 break;
 
             case R.id.ll_coyo:
-                startActivity(new Intent(this, CoyoActivity.class));
+                showActivity(mCatCinemas.get(COYO));
                 break;
 
             case R.id.ll_tonala:
-                startActivity(new Intent(this, TonalaActivity.class));
+                showActivity(mCatCinemas.get(TONA));
+                break;
+
+            case R.id.ll_coyote_insur:
+                showActivity(mCatCinemas.get(AUTO_COY_INSUR));
+                break;
+
+            case R.id.ll_coyote_pol:
+                showActivity(mCatCinemas.get(AUTO_COY_POL));
                 break;
 
             case R.id.iv_map_cineteca:
@@ -161,6 +224,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 getMaps(getString(R.string.map_tonala));
                 break;
 
+            case R.id.iv_map_coyote_insur:
+                getMaps(getString(R.string.map_coyo_insur));
+                break;
+
+            case R.id.iv_map_coyote_pol:
+                getMaps(getString(R.string.map_coyo_pol));
+                break;
+
             case R.id.iv_call_cineteca:
                 makeCall(getString(R.string.phone_cineteca));
                 break;
@@ -172,7 +243,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.iv_call_tonala:
                 makeCall(getString(R.string.phone_tonala));
                 break;
+            case R.id.iv_call_coyote_insur:
+                makeCall(getString(R.string.phone_coyo_insr));
+                break;
+            case R.id.iv_call_coyote_pol:
+                makeCall(getString(R.string.phone_coyo_pol));
+                break;
         }
+    }
+
+    /**
+     * This method is to set intent with the proper URL cinema and launch the activity.
+     *
+     * @param url The string with the URL.
+     */
+    private void showActivity(String url) {
+        Intent intent = new Intent(this, ShowTimeActivity.class);
+        final String TAG = "URL";
+        intent.putExtra(TAG, url);
+        startActivity(intent);
     }
 
     /**
