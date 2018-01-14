@@ -36,6 +36,9 @@
     <string name="cartelera">Ver cartelera</string>
     <string name="msg_cartelera_overlay">Toca la imagen para ver la cartelera.</string>
 
+    <!-- AdMob ad unit IDs -->
+    <string name="banner_home_footer">ca-app-pub-9708372782088183/5892659005</string>
+
 
 
 </resources>

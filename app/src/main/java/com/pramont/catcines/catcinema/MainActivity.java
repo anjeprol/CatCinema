@@ -25,6 +25,8 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.HashMap;
 
@@ -63,11 +65,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout mLinearLay_tonala;
     private LinearLayout mLinearLay_coyo_insur;
     private LinearLayout mLinearLay_coyo_pol;
+    private AdView mAdViewTop;
+    private AdView mAdViewMiddle;
+    private AdView mAdViewBottom;
+
+    @Override
+    public void onPause() {
+        if (mAdViewTop != null) {
+            mAdViewTop.pause();
+        }
+        if (mAdViewMiddle != null) {
+            mAdViewMiddle.pause();
+        }
+        if (mAdViewBottom != null) {
+            mAdViewBottom.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        if (mAdViewTop != null) {
+            mAdViewTop.resume();
+        }
+        if (mAdViewMiddle != null) {
+            mAdViewMiddle.resume();
+        }
+        if (mAdViewBottom != null) {
+            mAdViewBottom.resume();
+        }
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdViewTop != null) {
+            mAdViewTop.destroy();
+        }
+        if (mAdViewMiddle != null) {
+            mAdViewMiddle.destroy();
+        }
+        if (mAdViewBottom != null) {
+            mAdViewBottom.destroy();
+        }
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Load an ad into the AdMob banner view.
+        mAdViewTop = findViewById(R.id.adViewTop);
+        mAdViewMiddle = findViewById(R.id.adViewMiddle);
+        mAdViewBottom = findViewById(R.id.adViewBottom);
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template")
+                .build();
+
+        mAdViewTop.loadAd(adRequest);
+        mAdViewMiddle.loadAd(adRequest);
+        mAdViewBottom.loadAd(adRequest);
+
         mCatCinemas = new HashMap<>();
         mCatCinemas.put(COYO, "http://cinemacoyoacan.com/");
         mCatCinemas.put(TONA, "http://cinetonala.mx/");

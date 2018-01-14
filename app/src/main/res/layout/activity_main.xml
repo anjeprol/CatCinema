@@ -14,6 +14,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:adSize="BANNER"
+            app:adUnitId="@string/banner_home_footer"/>
+
         <android.support.v7.widget.CardView
             android:id="@+id/cv_coyo"
             android:layout_width="match_parent"
@@ -237,6 +246,15 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:adSize="BANNER"
+            app:adUnitId="@string/banner_home_footer"/>
+
         <android.support.v7.widget.CardView
             android:id="@+id/cv_coyote_insur"
             android:layout_width="match_parent"
@@ -316,7 +334,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/margin_top"
             android:layout_marginLeft="@dimen/margin_sides"
             android:layout_marginRight="@dimen/margin_sides"
             android:layout_marginTop="@dimen/margin_top"
@@ -385,5 +402,14 @@
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:adSize="BANNER"
+            app:adUnitId="@string/banner_home_footer"/>
     </LinearLayout>
 </ScrollView>
