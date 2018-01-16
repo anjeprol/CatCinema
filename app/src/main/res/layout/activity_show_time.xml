@@ -5,6 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pramont.catcines.catcinema.ShowTimeActivity">
+    tools:context="com.pramont.catcines.ads.ShowTimeActivity">
 
 </android.support.constraint.ConstraintLayout>

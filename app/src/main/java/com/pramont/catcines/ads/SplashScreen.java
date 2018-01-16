@@ -1,4 +1,4 @@
-package com.pramont.catcines.catcinema;
+package com.pramont.catcines.ads;
 
 import android.app.Activity;
 import android.content.Intent;

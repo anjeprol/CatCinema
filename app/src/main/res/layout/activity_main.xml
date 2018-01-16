@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/viewBg"
     android:orientation="vertical"
-    tools:context="com.pramont.catcines.catcinema.MainActivity">
+    tools:context="com.pramont.catcines.ads.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

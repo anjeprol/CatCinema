@@ -1,4 +1,4 @@
-package com.pramont.catcines.catcinema;
+package com.pramont.catcines.ads;
 
 import android.Manifest;
 import android.annotation.SuppressLint;

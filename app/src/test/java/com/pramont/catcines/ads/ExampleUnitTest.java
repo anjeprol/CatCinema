@@ -1,4 +1,4 @@
-package com.pramont.catcines.catcinema;
+package com.pramont.catcines.ads;
 
 import org.junit.Test;
 
